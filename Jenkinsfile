@@ -6,7 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    def dateFormat = new SimpleDateFormat("yyyyMMdd")
+                    def dateFormat = new SimpleDateFormat("YYYYmmddHHMM")
                     def date = new Date()
                     today = dateFormat.format(date)
                 }                
