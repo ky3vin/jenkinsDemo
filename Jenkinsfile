@@ -1,9 +1,12 @@
 pipeline {
     agent any
+    environment {
+        def timestamp = sh(script: timestamp='date +%Y%m%d%H%M')
+    }
     stages {
         stage('Build') {
             steps {
-                timestamp='date +%Y%m%d%H%M'
+                
                 echo "$timestamp"
             }
         }
