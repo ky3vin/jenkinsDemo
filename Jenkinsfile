@@ -3,23 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                timestamp='date +%Y%m%d%H%M'
+                echo "$timestamp"
             }
-        }
-        stage('Test') {
-            steps {
-                build 'SeleniumMaven'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-    }
-    post {
-        always {
-            echo "pipeline job done?????"
         }
     }
 }
