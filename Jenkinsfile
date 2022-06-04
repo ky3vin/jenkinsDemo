@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 pipeline {
     agent {
         label "demoAgent"
@@ -6,7 +8,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                script {
+                    def dateFormat = new SimpleDateFormat("yyyyMMddkkmm")
+                    def date = new Date()
+                    today = dateFormat.format(date)
+                }                
+                echo today
             }
         }
     }
